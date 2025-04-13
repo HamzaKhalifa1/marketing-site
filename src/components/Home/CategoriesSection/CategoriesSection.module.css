@@ -1,0 +1,21 @@
+.categoriesSection {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.categoriesContainer {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none;
+    gap: 1.875em;
+    margin: 2.5em 0 3.5em 0;
+}
+
+.categoriesContainer::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+

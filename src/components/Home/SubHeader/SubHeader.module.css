@@ -1,0 +1,76 @@
+.SubHeaderContainer, .SubHeaderContent{
+    display: flex;
+    align-items: center;
+}
+
+.SubHeaderContainer{
+    justify-content: space-between;
+}
+
+.SubHeaderContent{
+    column-gap: 5em;
+}
+
+.SubHeaderTitle{
+    font-size: 2.25em;
+    font-weight: 600;
+}
+
+.SubHeaderTimer,.SubHeaderTimerDate{
+    display: flex;
+    align-items: center;
+    column-gap: 1em;
+}
+
+.SubHeaderTimerDate{
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.SubHeaderTimerDateText{
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.SubHeaderTimerDateNumber{
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.SubHeaderTimerDateSplitter{
+    font-size: 2em;
+    color: var(--primary-color-light);
+    padding-top: 10px;
+}
+
+.actionBtnsContainer{
+    display: flex;
+    align-items: center;
+    column-gap: 0.5em;
+}
+
+.actionBtns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.875em;
+    height: 2.875em;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    border: none;
+}
+
+.actionBtnsIcon{
+    font-size: 1.2em;
+}
+
+@media screen and (max-width: 768px) {
+    
+    .actionBtnsContainer{
+        display: none;
+    }
+    
+    .SubHeaderContent{
+        justify-content: space-between;
+    }
+}
