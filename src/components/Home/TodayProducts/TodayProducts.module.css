@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+}
+
+.productsContainer{
+    display: flex;
+    overflow-x: auto;
+    gap: 1.875em;
+    scroll-behavior: smooth;
+    scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none; 
+}
+
+.productsContainer::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.viewProducts{
+    display: flex;
+    justify-content: center;
+    margin: 2em 0 3em 0;
+}
+

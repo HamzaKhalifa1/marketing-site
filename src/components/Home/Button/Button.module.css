@@ -1,0 +1,29 @@
+.Btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 500;
+    border-radius: 5px;
+    padding: 1em 3em;
+}
+
+.Btn:hover{
+    background-color: var(--primary-hover-color);
+    scale: 1.05;
+}
+
+@media screen and (max-width: 480px) {
+    .Btn{ 
+        font-size: 1em;
+    }
+}
+
+.greenBtn{
+    background-color: var(--third-color);
+}
+.greenBtn:hover{
+    background-color: var(--third-color);
+    scale: 1.05;
+}

@@ -1,0 +1,29 @@
+.header{
+    display: flex;
+    align-items: center;
+    column-gap: 1em;
+    margin-top: 3em;
+}
+
+.headerIcon{
+    width: 20px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+}
+
+.headerName{
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+@media screen and (max-width: 480px) {
+    .headerIcon{
+        width: 15px;
+        height: 30px;
+    }
+
+    .headerName{
+        font-size: 1.2em;
+    }
+}
