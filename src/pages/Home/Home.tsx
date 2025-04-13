@@ -1,4 +1,4 @@
-import './App.css'
+import React from 'react'
 import CategoriesSection from "../../components/Home/CategoriesSection/CategoriesSection"
 import SpecialCategory from '../../components/Home/CategoriesSection/SpecialCategory'
 import MonthProducts from '../../components/Home/MonthProducts/MonthProducts'

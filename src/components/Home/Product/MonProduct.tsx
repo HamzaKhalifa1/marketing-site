@@ -2,6 +2,7 @@ import styles from './MonProduct.module.css'
 import { FaRegEye } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa6";
+import React from 'react'
 
 interface ProductProps {
     imgSrc: string;

@@ -2,6 +2,7 @@ import Header from '../Header/Header'
 import MonProduct from '../Product/MonProduct'
 import SubHeader from '../SubHeader/SubHeader'
 import styles from './MonthProducts.module.css'
+import React from 'react'
 
 export default function MonthProducts() {
   return (

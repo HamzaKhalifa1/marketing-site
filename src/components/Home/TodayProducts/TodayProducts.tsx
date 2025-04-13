@@ -2,8 +2,9 @@ import styles from './TodayProducts.module.css'
 import Header from '../Header/Header';
 import SubHeader from '../SubHeader/SubHeader';
 import Product from '../Product/Product';
-import { useScroll } from '../../context/ScrollContext';
+import { useScroll } from '../../../context/ScrollContext';
 import Button from '../Button/Button';
+import React from 'react'
 
 export default function TodayProducts() {
   const { flashSalesRef, scrollLeft, scrollRight } = useScroll();  

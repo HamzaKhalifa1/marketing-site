@@ -1,4 +1,4 @@
-import { createContext, useContext, useRef, ReactNode } from 'react';
+import React, { createContext, useContext, useRef, ReactNode } from 'react';
 
 type ScrollContextType = {
   flashSalesRef: React.RefObject<HTMLDivElement | null>;

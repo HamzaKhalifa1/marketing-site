@@ -1,6 +1,7 @@
 import Button from '../Button/Button';
 import styles from './SpecialCategory.module.css';
-import img1 from '../../assets/img1.png';
+import img1 from '../../../assets/images/img1.png';
+import React from 'react'
 
 export default function SpecialCategory() {
   return (

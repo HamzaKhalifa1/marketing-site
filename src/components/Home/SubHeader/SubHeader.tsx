@@ -2,6 +2,7 @@ import styles from './SubHeader.module.css';
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
 import Button from '../Button/Button';
+import React from 'react'
 
 interface SubHeaderProps {
     name: string;

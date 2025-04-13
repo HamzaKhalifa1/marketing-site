@@ -5,7 +5,8 @@ import { VscDeviceMobile, VscVm, VscDeviceCamera } from "react-icons/vsc";
 import { BsSmartwatch } from "react-icons/bs";         
 import { LuGamepad, LuHeadphones  } from "react-icons/lu";
 import Category from "../Categories/Category";
-import { useScroll } from "../../context/ScrollContext";
+import { useScroll } from "../../../context/ScrollContext";
+import React from 'react'
 
 export default function CategoriesSection() {
   const { categoriesRef, scrollLeft, scrollRight } = useScroll();

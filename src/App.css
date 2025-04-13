@@ -1,10 +1,51 @@
-* {
-    box-sizing: border-box;
-}
+:root{
+    font-family: "Poppins", sans-serif;
+    --primary-color: #DB4444;
+    --primary-color-light: #E07575;
+    --primary-hover-color:#f83131;
+    --secondary-color: #F5F5F5;
+    --secondary-hover-color: #A0A3BD;
+    --third-color:#00FF66;
+  }
+  
+  button{
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease, color 0.3s ease, scale 0.3s ease;
+  }
+  
+  body{
+    background-color: white;
+    margin: 10px 8em;
+  }
 
-body {
-    margin: 0;
-}
-.lineThrough{
+  .lineThrough{
     border-color: hsla(0, 0%, 0%, 0.3);
 }
+  
+  @media screen and (max-width: 1200px) {
+    
+      body{
+          margin: 10px 5em;
+      }
+    
+  }
+  
+  @media screen and (max-width: 768px) {
+    
+      body{
+          margin: 10px 2em;
+      }
+      
+  }
+  
+  @media screen and (max-width: 480px) {
+    
+      body{
+          margin: 10px 1em;
+          font-size: 0.5em;
+      }
+    
+  }
