@@ -8,6 +8,10 @@ const PagesRoutes=()=>{
         {path:'/',element:<Layout/>,
             children:[
                 {index:true,element:<Home/>},
+                {path:'Contact',element:<div>Contact</div>},
+                {path:'About',element:<div>About</div>},
+                {path:'cart',element:<div>Cart</div>},
+                {path:'wishlist',element:<div>Wishlist</div>},
             ]}
     ])
 

@@ -9,7 +9,7 @@ const Layout     = () => {
 
     return (
         <div >
-            <Header/>
+            <Header property1={"active"} />
             <Outlet />
             <Footer/>
         </div>
