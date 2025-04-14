@@ -1,6 +1,6 @@
 :root{
     font-family: "Poppins", sans-serif;
-    --primary-color: #DB4444;
+    --primary-color: #db4444;
     --primary-color-light: #E07575;
     --primary-hover-color:#f83131;
     --secondary-color: #F5F5F5;
@@ -328,6 +328,7 @@
     --title-24px-semibold-letter-spacing: 0px;
     --title-24px-semibold-line-height: 32px;
     --x30-1px: rgba(0, 0, 0, 0.3);
+    --body-margin:0 8em;
 }
   
   button{
@@ -340,7 +341,10 @@
   
   body{
     background-color: white;
-    margin: 0 8em;
+  }
+
+  #outletCss{
+    margin: var(--body-margin);
   }
 
   .lineThrough{

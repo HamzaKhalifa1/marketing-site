@@ -1,7 +1,7 @@
 import React from 'react';
 import {Outlet}  from 'react-router-dom';
-import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
+import Navbar from '../../components/layout/Header/Navbar';
 
 
 
@@ -9,8 +9,10 @@ const Layout     = () => {
 
     return (
         <div >
-            <Header property1={"active"} />
-            <Outlet />
+            <Navbar property1={"active"} />
+            <div id='outletCss'>
+               <Outlet /> 
+            </div>
             <Footer/>
         </div>
     );

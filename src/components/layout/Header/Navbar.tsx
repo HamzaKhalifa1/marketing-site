@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Header.module.css'
+import styles from './Navbar.module.css'
 import {NavLink} from "react-router-dom";
 import PropTypes from "prop-types";
 import Component2 from "./../../../assets/images/Component2.svg";
@@ -10,7 +10,7 @@ interface Props {
     property1: "active" | "default";
 }
 
-function Header({ property1 }: Props ){
+function Navbar({ property1 }: Props ){
     return (
 
         <>
@@ -52,19 +52,16 @@ function Header({ property1 }: Props ){
                         <img  alt="Vector" src={Cart1} />
                     </NavLink>
                 </section>
-            </section>
-
-
-
+            </section>      
         </header>
-            <hr className='lineThrough'/>
+        <hr className='lineThrough'/>  
 </>
     );
 }
 
 
-Header.propTypes = {
+Navbar.propTypes = {
     property1: PropTypes.oneOf(["active", "default"]),
 };
 
-export default Header;
+export default Navbar;
