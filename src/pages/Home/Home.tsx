@@ -4,6 +4,7 @@ import SpecialCategory from '../../components/Home/CategoriesSection/SpecialCate
 import MonthProducts from '../../components/Home/MonthProducts/MonthProducts'
 import TodayProducts from '../../components/Home/TodayProducts/TodayProducts'
 import { ScrollProvider } from '../../context/ScrollContext'
+import FeaturedSection from '../../components/Home/FeaturedSection/FeaturedSection'
 
 function Home() {
 
@@ -15,6 +16,7 @@ function Home() {
       <hr className='lineThrough'/>
       <MonthProducts />
       <SpecialCategory />
+      <FeaturedSection />
     </ScrollProvider>
   )
 }
