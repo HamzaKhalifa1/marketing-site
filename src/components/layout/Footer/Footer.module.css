@@ -1,0 +1,26 @@
+#footer {
+    display: flex;
+    width: 100%;
+    height: 400px;
+    background-color: var(--button);
+    justify-content: space-around;
+}
+.inFooter {
+    color: var(--text);
+    margin-top: 1em;
+}
+
+.footerContain {
+    margin-top: 2em;
+    font-size: 1em;
+}
+.footerContainHeader {
+    font-size: 1.25em;
+    font-weight: 600;
+    margin-bottom: 1em;
+}
+.footerContainHeaderLogo {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 1em;
+}
