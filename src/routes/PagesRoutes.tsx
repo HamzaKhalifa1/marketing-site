@@ -2,6 +2,7 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Layout from "../pages/Layout";
 import Home from "../pages/Home";
 import React from "react";
+import Wishlist from "../pages/Wishlist";
 
 const PagesRoutes=()=>{
     const route = createBrowserRouter([
@@ -11,7 +12,7 @@ const PagesRoutes=()=>{
                 {path:'Contact',element:<div>Contact</div>},
                 {path:'About',element:<div>About</div>},
                 {path:'cart',element:<div>Cart</div>},
-                {path:'wishlist',element:<div>Wishlist</div>},
+                {path:'wishlist',element:<Wishlist/>},
             ]}
     ])
 

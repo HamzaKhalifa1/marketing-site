@@ -1,0 +1,44 @@
+.displayFlex {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 5.625em;
+    align-items: center;
+    margin: 3em 0;
+
+}
+
+
+.WishlistProductsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.875em;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    column-gap: 1em;
+}
+
+.headerIcon{
+    width: 20px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+}
+
+.headerName{
+    font-weight: 600;
+}
+
+@media screen and (max-width: 480px) {
+    .headerIcon{
+        width: 15px;
+        height: 30px;
+    }
+
+    .headerName{
+        font-size: 1.2em;
+    }
+}
