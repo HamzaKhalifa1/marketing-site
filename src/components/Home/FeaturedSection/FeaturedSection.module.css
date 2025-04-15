@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     row-gap: 1em;
-    margin-bottom: 5em;
 }
 
 .featuredSection {
@@ -135,6 +134,12 @@
         width: 100%;
         display: flex;
     }
+}
+
+.featureBenifitsContainer{
+    display: flex;
+    justify-content: space-around;
+    padding: 8em 0 9em 0;
 }
 
 @media screen and (max-width: 1200px) {

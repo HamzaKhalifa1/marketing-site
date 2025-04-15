@@ -3,6 +3,10 @@ import styles from './FeaturedSection.module.css'
 import Header from '../Header/Header'
 import SubHeader from '../SubHeader/SubHeader'
 import { NavLink } from 'react-router-dom'
+import { CiDeliveryTruck } from "react-icons/ci";
+import { TbHeadset } from "react-icons/tb";
+import { RiShieldCheckLine } from "react-icons/ri";
+import Feature from '../Feature/Feature'
 
 export default function FeaturedSection() {
   return (
@@ -42,6 +46,11 @@ export default function FeaturedSection() {
                     <span className={styles.featureContextLink}>Shop Now</span>
                 </span>
             </NavLink>
+        </div>
+        <div className={styles.featureBenifitsContainer}>
+            <Feature Icon={CiDeliveryTruck} title="Free and fast delivery" desc="Free delievery for all orders over $140" />
+            <Feature Icon={TbHeadset} title="24/7 customer service" desc="Friendly 24/7 customer support" />
+            <Feature Icon={RiShieldCheckLine} title="Money back guarantee" desc="We return money within 30 days" />
         </div>
     </section>
   )

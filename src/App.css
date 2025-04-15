@@ -230,7 +230,7 @@
     --heading-90px-semibold-line-height: 98px;
     --hover-button: rgba(160, 188, 224, 1);
     --primary: rgba(255, 255, 255, 1);
-    --primary-1: rgba(54, 55, 56, 1);
+    --primary-1: rgb(54, 55, 56);
     --secondary: rgba(245, 245, 245, 1);
     --secondary-1: rgba(254, 250, 241, 1);
     --secondary-2: rgba(219, 68, 68, 1);

@@ -1,0 +1,41 @@
+.featureCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1.5em;
+}
+
+.featureCardIconDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 1em solid rgba(54, 55, 56, 0.3);
+}
+
+.featureCardIcon{
+    font-size: 4em;
+    padding: 0.25em;
+    background-color: var(--button);
+    color: var(--text);
+    border-radius: 50%;
+}
+
+.featureTitle{
+    font-size: var(--title-20px-semibold-font-size);
+    font-weight: var(--title-20px-semibold-font-weight);
+    font-family: var(--title-20px-semibold-font-family);
+    font-style: var(--title-20px-semibold-font-style);
+    letter-spacing: var(--title-20px-semibold-letter-spacing);
+    line-height: var(--title-20px-semibold-line-height);
+    text-transform: uppercase;
+}
+
+.featureDesc{
+    font-size: var(--title-14px-regular-font-size);
+    font-weight: var(--title-14px-regular-font-weight);
+    font-family: var(--title-14px-regular-font-family);
+    font-style: var(--title-14px-regular-font-style);
+    letter-spacing: var(--title-14px-regular-letter-spacing);
+    line-height: var(--title-14px-regular-line-height);
+}
