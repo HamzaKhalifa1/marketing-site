@@ -1,6 +1,6 @@
 :root{
     font-family: "Poppins", sans-serif;
-    --primary-color: #DB4444;
+    --primary-color: #db4444;
     --primary-color-light: #E07575;
     --primary-hover-color:#f83131;
     --secondary-color: #F5F5F5;
@@ -230,7 +230,7 @@
     --heading-90px-semibold-line-height: 98px;
     --hover-button: rgba(160, 188, 224, 1);
     --primary: rgba(255, 255, 255, 1);
-    --primary-1: rgba(54, 55, 56, 1);
+    --primary-1: rgb(54, 55, 56);
     --secondary: rgba(245, 245, 245, 1);
     --secondary-1: rgba(254, 250, 241, 1);
     --secondary-2: rgba(219, 68, 68, 1);
@@ -328,6 +328,7 @@
     --title-24px-semibold-letter-spacing: 0px;
     --title-24px-semibold-line-height: 32px;
     --x30-1px: rgba(0, 0, 0, 0.3);
+    --body-margin:0 8em;
 }
   
   button{
@@ -340,7 +341,10 @@
   
   body{
     background-color: white;
-    margin: 0 8em;
+  }
+
+  #outletCss{
+    margin: var(--body-margin);
   }
 
   .lineThrough{
@@ -349,24 +353,26 @@
   
   @media screen and (max-width: 1200px) {
     
-      body{
-          margin: 10px 5em;
+      :root{
+          --body-margin:0 5em;
       }
-    
   }
   
   @media screen and (max-width: 768px) {
     
-      body{
-          margin: 10px 2em;
+      :root{
+          --body-margin:0 2em;
       }
       
   }
   
   @media screen and (max-width: 480px) {
     
+      :root{
+          --body-margin:0 1em;
+      }
+      
       body{
-          margin: 10px 1em;
           font-size: 0.5em;
       }
     

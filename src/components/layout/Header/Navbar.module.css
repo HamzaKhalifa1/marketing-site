@@ -1,9 +1,10 @@
 #Header {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: calc(100% - 16em);
     height: 5.625em;
     align-items: center;
+    margin: var(--body-margin);
 }
 #logoAndLogoName {
     display: flex;
