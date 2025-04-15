@@ -353,24 +353,26 @@
   
   @media screen and (max-width: 1200px) {
     
-      body{
-          margin: 10px 5em;
+      :root{
+          --body-margin:0 5em;
       }
-    
   }
   
   @media screen and (max-width: 768px) {
     
-      body{
-          margin: 10px 2em;
+      :root{
+          --body-margin:0 2em;
       }
       
   }
   
   @media screen and (max-width: 480px) {
     
+      :root{
+          --body-margin:0 1em;
+      }
+      
       body{
-          margin: 10px 1em;
           font-size: 0.5em;
       }
     
