@@ -139,6 +139,8 @@
 .featureBenifitsContainer{
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2em;
     padding: 8em 0 9em 0;
 }
 

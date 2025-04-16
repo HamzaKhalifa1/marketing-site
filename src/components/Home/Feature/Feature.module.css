@@ -39,3 +39,32 @@
     letter-spacing: var(--title-14px-regular-letter-spacing);
     line-height: var(--title-14px-regular-line-height);
 }
+
+@media screen and (max-width: 1024px) {
+    
+    .featureCardIcon{
+        font-size: 3em;
+    }
+    .featureTitle{
+        font-size: calc(var(--title-20px-semibold-font-size) * 0.8);
+    }
+    .featureDesc{
+        font-size: calc(var(--title-14px-regular-font-size) * 0.8);
+    }
+    
+}
+
+@media screen and (max-width: 425px) {
+    
+    .featureCard{
+        row-gap: 0.5em;
+    }
+
+    .featureTitle{
+        font-size: calc(var(--title-20px-semibold-font-size) * 0.6);
+    }
+    .featureDesc{
+        font-size: calc(var(--title-14px-regular-font-size) * 0.6);
+    }
+    
+}
