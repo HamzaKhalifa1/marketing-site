@@ -1,0 +1,110 @@
+#checkOut {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+#form {
+    margin: 10vh ;
+}
+
+label {
+    font-weight: 400;
+    display: block;
+    opacity: 40%;
+    color : var(--text-2);
+    width: 133px;
+    height: 24px;
+}
+
+input[type="text"] {
+    background-color: var(--secondary);
+    width: 23.5em;
+    height: 2.5em;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+    border: none;
+    padding: 0 0.7rem;
+}
+
+input[type="text"]:focus {
+    background-color: rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+input[type="text"].error{
+    border-color: var(--button-2);
+}
+
+input[type="text"].error:focus{
+    border-color: var(--button-2);
+}
+
+.errorMessage {
+    font-size: 0.875rem;
+    color: #dc3545;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+input[type="submit"] {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.875rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+}
+.red{
+    color: red;
+}
+
+input[type="submit"]:hover {
+    transform: translateY(-1px);
+}
+
+input[type="submit"]:active {
+    transform: translateY(1px);
+}
+
+input[type="submit"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+input::placeholder{
+    font-size: 0.9375rem;
+}
+
+@media (max-width: 768px) {
+    #newBlogForm {
+        margin: 10vh auto;
+        padding: 1.5rem;
+    }
+
+    input[type="submit"] {
+        padding: 0.75rem 1.25rem;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    #Form {
+        background-color: white;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    input[type="text"]{
+        font-size: 20px;
+    }
+
+    input::placeholder
+     {
+        opacity: 0.8;
+    }
+}

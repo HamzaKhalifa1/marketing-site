@@ -9,7 +9,7 @@ const Layout     = () => {
 
     return (
         <div >
-            {/* <Navbar property1={"active"} /> */}
+            <Navbar property1={"active"} />
             <div id='outletCss'>
                <Outlet /> 
             </div>

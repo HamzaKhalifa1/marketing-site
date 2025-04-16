@@ -13,6 +13,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1.875em;
+    margin-bottom: 10em;
 }
 
 .header{
