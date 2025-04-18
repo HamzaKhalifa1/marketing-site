@@ -1,4 +1,221 @@
-.header_instance {
-    text-decoration: none;
-    margin: 10em;
+.cartTable{
+    width: 100%;
+    text-align: left;    
+}
+
+th, td{
+    font-family: var(--title-16px-regular-font-family);
+    font-size: var(--title-16px-regular-font-size);
+    font-style: var(--title-16px-regular-font-style);
+    font-weight: var(--title-16px-regular-font-weight);
+    letter-spacing: var(--title-16px-regular-letter-spacing);
+    line-height: var(--title-16px-regular-line-height);
+    padding: 1.5em 0;
+}
+
+th:not(:last-child), td:not(:last-child){
+    width: 30%;
+}
+
+th:first-child, td:first-child {
+    padding: 1.5em 0 1.5em 2.5em;
+}
+
+th:last-child, td:last-child {
+    padding: 1.5em 2.5em 1.5em 0;
+}
+
+.cartTableHeader{
+    box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.05);
+}
+
+.cartTableBody > tr{
+    box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.05);
+}
+
+.rowSplitter{
+    height: 2.5em;
+    background-color: var(--bg);
+    box-shadow: none !important;
+}
+
+.product{
+    display: flex;
+    gap: 1em;
+    width: 100%;
+    position: relative;
+}
+
+.product > img{
+    width: 3.5em;
+    object-fit: scale-down;
+    
+}
+
+.deleteBtn{
+    position: absolute;
+    left: -16px;
+    top: -6px;
+    background-color: transparent;
+    font-size: 1.5em;
+    z-index: 1;
+    color: var(--secondary-2);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.cartTableBody > tr:hover .deleteBtn{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.quantity{
+    display: flex;
+    align-items: center;
+    border-radius: 0.25em;
+    border: 1.5px solid rgba(0, 0, 0, 0.40);
+    width: fit-content;
+}
+.quantity > input[type=text]{
+    width: 1.5em;
+    height: 2.5em;
+    padding: 0.25em 0.5em;
+    background-color: var(--bg);
+    font-family: var(--title-16px-regular-font-family);
+    font-size: var(--title-16px-regular-font-size);
+    font-style: var(--title-16px-regular-font-style);
+    font-weight: var(--title-16px-regular-font-weight);
+    letter-spacing: var(--title-16px-regular-letter-spacing);
+    line-height: var(--title-16px-regular-line-height);
+}
+
+.quantityButtons{
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+}
+
+.quantityButtons > button{
+    display: flex;
+    background-color: var(--bg);
+    border: none;
+}
+
+.cartSummary{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5em;
+    row-gap: 5em;
+}
+
+.cartSummaryBtns, .cartSummaryTotalContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.CouponContainer{
+    display: flex;
+    gap: 1em;
+    height: fit-content;
+    flex-wrap: wrap;
+}
+
+.CouponContainer > input[type="text"]{
+    background-color: var(--bg);
+    border: 1px solid var(--text-2);
+    width: 23.5em;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+    padding: 1em 1.5em;
+}
+
+.CouponContainer > input::placeholder{
+    font-family: var(--title-16px-regular-font-family);
+    font-size: var(--title-16px-regular-font-size);
+    font-style: var(--title-16px-regular-font-style);
+    font-weight: var(--title-16px-regular-font-weight);
+    letter-spacing: var(--title-16px-regular-letter-spacing);
+    line-height: var(--title-16px-regular-line-height);
+}
+
+.cartSummaryTotal{
+    display: flex;
+    flex-direction: column;
+    padding: 2em 1.5em;
+    border: 1.5px solid var(--text-2);
+    border-radius: 5px;
+    gap: 1.5em;
+    width: 25em;
+}
+
+.cartSummaryTotalTitle{
+    font-family: var(--title-20px-medium-font-family);
+    font-size: var(--title-20px-medium-font-size);
+    font-style: var(--title-20px-medium-font-style);
+    font-weight: var(--title-20px-medium-font-weight);
+    letter-spacing: var(--title-20px-medium-letter-spacing);
+    line-height: var(--title-20px-medium-line-height);
+}
+
+.cartSummaryTotalContext{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+}
+
+.splitter{
+    width: 100%;
+    margin: 0;
+}
+
+.Total{
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--title-16px-regular-font-family);
+    font-size: var(--title-16px-regular-font-size);
+    font-style: var(--title-16px-regular-font-style);
+    font-weight: var(--title-16px-regular-font-weight);
+    letter-spacing: var(--title-16px-regular-letter-spacing);
+    line-height: var(--title-16px-regular-line-height);
+}
+
+.cartSummaryTotalBtn{
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1000px) {
+    .cartSummaryTotalContainer{
+        flex-direction: column;
+        gap: 1em;
+        justify-content: end;
+    }
+
+    .CouponContainer{
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .CouponContainer > input[type="text"]{
+        width: calc(100% - 21em);
+    }
+
+    .cartSummaryTotal{
+        width: calc(100% - 3em);
+    }
+    
+}
+
+@media screen and (max-width: 480px) {
+    
+    .CouponContainer > input[type="text"]{
+        padding: 0.5em 1em;
+        width: calc(100% - 11em);
+    }
+
+    .CouponContainer > input::placeholder{
+        font-size: calc(var(--title-16px-regular-font-size) * 0.8em);
+    }
 }
