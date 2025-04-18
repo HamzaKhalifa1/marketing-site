@@ -1,0 +1,30 @@
+.breadcrumb {
+    font-family: var(--title-14px-regular-font-family);
+    font-size: var(--title-14px-regular-font-size);
+    font-style: var(--title-14px-regular-font-style);
+    font-weight: var(--title-14px-regular-font-weight);
+    letter-spacing: var(--title-14px-regular-letter-spacing);
+    line-height: var(--title-14px-regular-line-height);
+    margin: 5em 0;
+    color: var(--text-2);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 0.75em;
+}
+
+.link {
+    opacity: 0.5;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.separator {
+    margin: 0 0.5em;
+    opacity: 0.5;
+}
+
+
