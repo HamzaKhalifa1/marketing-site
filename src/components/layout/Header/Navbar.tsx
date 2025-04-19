@@ -4,6 +4,8 @@ import {NavLink} from "react-router-dom";
 import PropTypes from "prop-types";
 import Component2 from "./../../../assets/images/Component2.svg";
 import wishlist from "./../../../assets/images/Wishlist.svg";
+import { CiHeart } from "react-icons/ci";
+import { PiShoppingCartThin } from "react-icons/pi";
 import Cart1 from "./../../../assets/images/Cart1.svg";
 
 interface Props {
@@ -33,7 +35,7 @@ function Navbar({ property1 }: Props ){
                     </NavLink>
                 </div>
             </section>
-            <section id={styles.SerchAndWishlistAndCart}>
+            <section id={styles.SearchAndWishlistAndCart}>
                 <section id={styles.Search}>
                     <div className={`${styles.name} ${styles[property1]}`}>
                         {property1 === "active" && (
@@ -46,10 +48,10 @@ function Navbar({ property1 }: Props ){
                 </section>
                 <section id={styles.wishlistAndCart}>
                     <NavLink to="wishlist" className={styles.header_instance}>
-                        <img  alt="Vector" src={wishlist} />
+                        <CiHeart className={styles.header_instanceIcon}/>
                     </NavLink>
                     <NavLink to="cart" className={styles.header_instance}>
-                        <img  alt="Vector" src={Cart1} />
+                        <PiShoppingCartThin className={styles.header_instanceIcon}/>
                     </NavLink>
                 </section>
             </section>      
