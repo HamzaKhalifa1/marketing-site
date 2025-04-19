@@ -64,7 +64,7 @@
     color: rgb(255, 63, 63);
 }
 
-.cardEyeBtn:hover{
+.cardEyeBtn:hover, .cardDeleteBtn:hover{
     color: var(--primary-color);
 }
 

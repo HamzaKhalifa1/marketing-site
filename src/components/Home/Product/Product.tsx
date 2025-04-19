@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import styles from './Product.module.css'
 import { FaRegEye, FaRegHeart, FaHeart, FaStar } from "react-icons/fa6";
 import { MdDeleteOutline } from "react-icons/md";
@@ -42,6 +42,11 @@ export default function Product({imgSrc, label, price, rateNumber, discount, isN
         }
     };
 
+    const handleDeleteFromWishlist = () => {
+        dispatch(removeFromWishlist(label));
+    };
+    
+
     const handleAddToCart = () => {
         const finalPrice = discount ? discountedPrice : price;
         dispatch(addToCart({ imgSrc, label, price: finalPrice, quantity: 1, _id: label  }));
@@ -71,7 +76,7 @@ export default function Product({imgSrc, label, price, rateNumber, discount, isN
                             </button>
                         )}
                         {showDeleteButton ? (
-                            <button onClick={() => console.log('Delete button clicked')} className={styles.cardDeleteBtn}>
+                            <button onClick={handleDeleteFromWishlist} className={styles.cardDeleteBtn}>
                                 <span className={styles.cardBtnsIcon}><MdDeleteOutline /></span>
                             </button>
                         ) : showPreview ? (
