@@ -41,6 +41,25 @@
     gap: 1em;
 }
 
+.iconWrapper {
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    top: -0.5em;
+    right: -0.5em;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 0.5em;
+    font-weight: bold;
+    padding: 0.2em 0.7em;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .header_instance {
     text-decoration: none;
     color: var(--text-2);
