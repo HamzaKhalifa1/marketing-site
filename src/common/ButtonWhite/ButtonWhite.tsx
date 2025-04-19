@@ -1,9 +1,14 @@
 import React from 'react';
 import styles from "./ButtonWhite.module.css";
 
-function ButtonWhite({name}: {name: string}) {
+interface ButtonWhiteProps {
+    name: string;
+    onClick?: () => void;
+}
+
+function ButtonWhite({ name, onClick }: ButtonWhiteProps) {
     return (
-        <button className={styles.button}>
+        <button className={styles.button} onClick={onClick}>
             {name}
         </button>
     );

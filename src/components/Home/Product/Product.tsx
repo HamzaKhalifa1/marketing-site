@@ -3,6 +3,9 @@ import { FaRegEye } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa6";
 import React from 'react'
+import { useAppDispatch } from '../../../hooks/reduxHooks';
+import { addToWishlist } from '../../../store/wishlistSlice';
+import { addToCart } from '../../../store/cartSlice';
 
 interface ProductProps {
     imgSrc: string;
@@ -13,6 +16,20 @@ interface ProductProps {
 }
 
 export default function Product({imgSrc, discount, label, price, rateNumber} : ProductProps) {
+    const dispatch = useAppDispatch();
+
+    const handleAddToWishlist = () => {
+        dispatch(addToWishlist({ imgSrc, discount, label, price, rateNumber, _id: label }));
+    };
+
+    const handleAddToCart = () => {
+        dispatch(addToCart({ imgSrc,  
+            label, 
+            price: finalPrice,
+            quantity: 1,
+            _id: label  }));
+    };
+
     const calculateDiscountedPrice = (price: string, discount: string): string => {
         const priceNumber = parseFloat(price);
         const discountNumber = parseFloat(discount);
@@ -22,16 +39,18 @@ export default function Product({imgSrc, discount, label, price, rateNumber} : P
 
     const discountedPrice = calculateDiscountedPrice(price, discount);
 
+    const finalPrice = discount ? discountedPrice : price;
+
     return (
         <div className={styles.productItem}>
                 <div className={styles.productCard}>
                     <img src={imgSrc} alt={label} className={styles.productImage} />
                     {discount && <span className={styles.productDiscountTag}>-{discount}%</span>}
                     <div className={styles.cardBtnsContainer}>
-                        <button className={styles.cardHeartBtn}><span className={styles.cardBtnsIcon}><FaRegHeart /></span></button>
+                        <button onClick={handleAddToWishlist} className={styles.cardHeartBtn}><span className={styles.cardBtnsIcon}><FaRegHeart /></span></button>
                         <button className={styles.cardEyeBtn}><span className={styles.cardBtnsIcon}><FaRegEye /></span></button>
                     </div>
-                    <button className={styles.cardAddToCart}>Add To Cart</button>
+                    <button onClick={handleAddToCart} className={styles.cardAddToCart}>Add To Cart</button>
                 </div>
                 <div className={styles.productContext}>
                     <span className={styles.productLabel}>{label}</span>
