@@ -1,6 +1,6 @@
 .cartTable{
     width: 100%;
-    text-align: left;    
+    text-align: left; 
 }
 
 th, td{
@@ -206,6 +206,25 @@ th:last-child, td:last-child {
         width: calc(100% - 3em);
     }
     
+}
+
+@media screen and (max-width: 768px) {
+    th, td, .quantity > input[type=text] {
+        font-size: var(--title-16px-regular-font-size-small);
+    }
+
+    .product > p{
+        white-space: nowrap; 
+        overflow: hidden;            
+        text-overflow: ellipsis;
+        max-width: 6em;
+    }
+
+    .deleteBtn{
+        opacity: 1;
+        left: -30px;
+        top: 10px;
+    }
 }
 
 @media screen and (max-width: 480px) {
