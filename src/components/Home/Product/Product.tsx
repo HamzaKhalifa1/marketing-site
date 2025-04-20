@@ -7,6 +7,7 @@ import { addToWishlist, removeFromWishlist } from '../../../store/wishlistSlice'
 import { addToCart } from '../../../store/cartSlice';
 import { useState } from 'react';
 import { useAppSelector } from '../../../hooks/reduxHooks';
+import { toast } from 'react-toastify';
 
 interface ProductProps {
     imgSrc: string;
@@ -17,14 +18,15 @@ interface ProductProps {
     isNew?: boolean;
     showAddToCartAlways?: boolean;
     showDeleteButton?: boolean;
-    showAddToWishlist?: boolean; // ❤️
-    showPreview?: boolean; // 👁️
-    colors?: string[]; // ["#000", "#f00"]
+    showAddToWishlist?: boolean;
+    showPreview?: boolean;
+    colors?: string[]; 
     width?: string;
+    showDeleteButtonFromWishlistAfterAddToCart?: boolean;
 }
 
 
-export default function Product({imgSrc, label, price, rateNumber, discount, isNew, showAddToCartAlways, showDeleteButton, showAddToWishlist, showPreview, colors, width} : ProductProps) {
+export default function Product({imgSrc, label, price, rateNumber, discount, isNew, showAddToCartAlways, showDeleteButton, showAddToWishlist, showPreview, colors, width, showDeleteButtonFromWishlistAfterAddToCart} : ProductProps) {
     
     const [addedToCart, setAddedToCart] = useState(false);
     
@@ -33,6 +35,8 @@ export default function Product({imgSrc, label, price, rateNumber, discount, isN
     const wishlistItems = useAppSelector(state => state.wishlist.items);
 
     const isLiked = wishlistItems.some(item => item._id === label);
+
+    const [isFading, setIsFading] = useState(false);
 
     const handleAddToWishlist = () => {
         if (isLiked) {
@@ -43,13 +47,40 @@ export default function Product({imgSrc, label, price, rateNumber, discount, isN
     };
 
     const handleDeleteFromWishlist = () => {
-        dispatch(removeFromWishlist(label));
+        setIsFading(true);
+        setTimeout(() => {
+            dispatch(removeFromWishlist(label));
+            toast.info('Item removed from wishlist.', {
+                position: 'top-center',
+                autoClose: 1500,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+            });
+        }, 300);
     };
     
 
     const handleAddToCart = () => {
         const finalPrice = discount ? discountedPrice : price;
         dispatch(addToCart({ imgSrc, label, price: finalPrice, quantity: 1, _id: label  }));
+        
+        if (showDeleteButtonFromWishlistAfterAddToCart) {
+            setIsFading(true);
+            setTimeout(() => {
+                dispatch(removeFromWishlist(label));
+                toast.success('Item moved to cart!', {
+                    position: 'top-center',
+                    autoClose: 1500,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: false,
+                });
+            }, 300);
+        }
+
         setAddedToCart(true);
         setTimeout(() => setAddedToCart(false), 1500);
     };
@@ -64,7 +95,7 @@ export default function Product({imgSrc, label, price, rateNumber, discount, isN
     const discountedPrice = calculateDiscountedPrice(price, discount || "0");
 
     return (
-        <div className={styles.productItem}>
+        <div className={`${styles.productItem} ${isFading ? styles.fadeOut : ''}`}>
                 <div className={styles.productCard} style={{width: width, height: width}}>
                     <img src={imgSrc} alt={label} className={styles.productImage} />
                     {discount && <span className={styles.productDiscountTag}>-{discount}%</span>}

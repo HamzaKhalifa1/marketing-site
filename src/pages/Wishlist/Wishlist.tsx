@@ -60,6 +60,8 @@ function Wishlist() {
                             showAddToCartAlways = {true}
                             showDeleteButton = {true}
                             showAddToWishlist = {false}
+                            showPreview = {false}
+                            showDeleteButtonFromWishlistAfterAddToCart={true}
                         />
                     ))
                 ) : (
