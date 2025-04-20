@@ -5,13 +5,14 @@ import React from "react";
 import Wishlist from "../pages/Wishlist";
 import Cart from "../pages/Cart";
 import CheckOut from "../pages/CheckOut";
+import Contact from "../pages/Contact";
 
 const PagesRoutes=()=>{
     const route = createBrowserRouter([
         {path:'/',element:<Layout/>,
             children:[
                 {index:true,element:<Home/>},
-                {path:'contact',element:<div>Contact</div>},
+                {path:'contact',element:<Contact/>},
                 {path:'about',element:<div>About</div>},
                 {path:'wishlist',element:<Wishlist/>},
                 {path:'cart',element:<Cart/>},
