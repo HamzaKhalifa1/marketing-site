@@ -103,6 +103,11 @@ th:last-child, td:last-child {
     border: none;
 }
 
+.emptyCart{
+    text-align: center;
+    height: 5em;
+}
+
 .cartSummary{
     display: flex;
     flex-direction: column;

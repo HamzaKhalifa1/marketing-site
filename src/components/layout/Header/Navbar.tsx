@@ -3,16 +3,20 @@ import styles from './Navbar.module.css'
 import {NavLink} from "react-router-dom";
 import PropTypes from "prop-types";
 import Component2 from "./../../../assets/images/Component2.svg";
-import wishlist from "./../../../assets/images/Wishlist.svg";
-import Cart1 from "./../../../assets/images/Cart1.svg";
+import { CiHeart } from "react-icons/ci";
+import { PiShoppingCartThin } from "react-icons/pi";
+import { useAppSelector } from '../../../hooks/reduxHooks';
 
 interface Props {
     property1: "active" | "default";
 }
 
 function Navbar({ property1 }: Props ){
-    return (
 
+    const wishlistItems = useAppSelector(state => state.wishlist.items);
+    const cartItems = useAppSelector(state => state.cart.items);
+
+    return (
         <>
         <header id={styles.Header}>
         <section id={styles.logoAndLogoName}>
@@ -33,7 +37,7 @@ function Navbar({ property1 }: Props ){
                     </NavLink>
                 </div>
             </section>
-            <section id={styles.SerchAndWishlistAndCart}>
+            <section id={styles.SearchAndWishlistAndCart}>
                 <section id={styles.Search}>
                     <div className={`${styles.name} ${styles[property1]}`}>
                         {property1 === "active" && (
@@ -46,10 +50,20 @@ function Navbar({ property1 }: Props ){
                 </section>
                 <section id={styles.wishlistAndCart}>
                     <NavLink to="wishlist" className={styles.header_instance}>
-                        <img  alt="Vector" src={wishlist} />
+                        <div className={styles.iconWrapper}>
+                            <CiHeart className={styles.header_instanceIcon} />
+                            {wishlistItems.length > 0 && (
+                                <span className={styles.badge}>{wishlistItems.length}</span>
+                            )}
+                        </div>
                     </NavLink>
                     <NavLink to="cart" className={styles.header_instance}>
-                        <img  alt="Vector" src={Cart1} />
+                        <div className={styles.iconWrapper}>
+                            <PiShoppingCartThin className={styles.header_instanceIcon} />
+                            {cartItems.length > 0 && (
+                                <span className={styles.badge}>{cartItems.length}</span>
+                            )}
+                        </div>
                     </NavLink>
                 </section>
             </section>      

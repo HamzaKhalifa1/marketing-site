@@ -1,20 +1,29 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styles from "./Cart.module.css";
-import { useState } from 'react';
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
 import { TiDelete } from "react-icons/ti";
 import ButtonWhite from '../../common/ButtonWhite/ButtonWhite.tsx';
 import Button from '../../components/Home/Button/Button';
 import { NavLink } from 'react-router-dom';
+import { useAppSelector, useAppDispatch } from '../../hooks/reduxHooks';
+import { clearCart, decrementQuantity, incrementQuantity, removeFromCart } from '../../store/cartSlice.ts';
 
 function Cart () {
-    const [value, setValue] = useState(1);
 
-    const increment = () => setValue(prev => prev + 1);
-    const decrement = () => setValue(prev => (prev > 1 ? prev - 1 : 1));
+    const cartItems = useAppSelector(state => state.cart.items);
+    const dispatch = useAppDispatch();
+
+    const subtotal = cartItems.reduce((acc, item) => {
+        return acc + Number(item.price) * item.quantity;
+    }, 0);
+
+    const shipping = 0;
+
+    const total = subtotal + shipping;
 
     return (
         <main className={styles.cart}>
+            {cartItems.length > 0 ?
             <table className={styles.cartTable}>
                 <thead className={styles.cartTableHeader}>
                     <tr>
@@ -25,64 +34,43 @@ function Cart () {
                     </tr>
                 </thead>
                 <tbody className={styles.cartTableBody}>
-                    <tr className={styles.rowSplitter}></tr>
-                    <tr>
-                        <td>
-                            <div className={styles.product}>
-                                <img src="https://s3-alpha-sig.figma.com/img/5e63/4682/db5174aff99bb9337d2dc9598a0b44e4?Expires=1745798400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=lUMuONlzw6IAVZgYbwKMIXGWBc7fejt8reaOIrkFE2REwONctSWalgTuT71yT~WGxpK7-J-fuQcIbGhWWCaqJ15PQwBF-SPXMIySN1~1lZdUpdAheymjQtb2B3Rkbkw6OQnKsgeWNQMZSU8xHkvKc9wjq-~9XIPHyFVwfwB~2HVx5RRBd4q3UmlA1-QBG5-CLx2PMykuehdwybVrqXqutM~fHU6Lxfst16Hpfn~b-smRUuytrq0pRcJ7l40hUokwqpF5ZWNXGIt8agWvjetOsomcLWgYTGSCI5Hd2jkblZjotttBSLO8EuDkqk1NbUGUwAlkjD3S~efGsbQf9nh3Dg__" alt="Product Image" />
-                                <p>LCD Monitor</p>
-                                <button className={styles.deleteBtn}><TiDelete/></button>
-                            </div>
-                        </td>
-                        <td>$650</td>
-                        <td>
-                            <span className={styles.quantity}>
-                                <input
-                                    type="text"
-                                    value={value.toString().padStart(2, '0')}
-                                    readOnly
-                                />
-                                <div className={styles.quantityButtons}>
-                                    <button onClick={increment}><FaAngleUp/></button>
-                                    <button onClick={decrement}><FaAngleDown/></button>
+                    {cartItems.length > 0 && cartItems.map((item) => (
+                        <Fragment key={item._id}>
+                        <tr className={styles.rowSplitter}></tr>
+                        <tr>
+                            <td>
+                                <div className={styles.product}>
+                                <img src={item.imgSrc} alt={item.label} />
+                                <p>{item.label}</p>
+                                <button className={styles.deleteBtn} onClick={() => dispatch(removeFromCart(item._id))}>
+                                    <TiDelete />
+                                </button>
                                 </div>
-                            </span>
-                        </td>
-                        <td>$650</td>
-                    </tr>
-                    <tr className={styles.rowSplitter}></tr>
-                    <tr>
-                        <td>
-                            <div className={styles.product}>
-                                <img src="https://s3-alpha-sig.figma.com/img/5d5c/2e52/50752d55f8b60f2aa2923183dadbc135?Expires=1745798400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=JXQCBpf7UwaIMHXj~ZN5~oiX6h5mdDgt8G4Ly2TImlmX2uliRVWWK08X08VgfP9p3cQPwRyhLdsQzmCVaSMBszp6SPStiJZIxAhxLH-cuo25eAc1tSQ3HHVtYSuxYJ~zFsWFIDnmnwUUxKQGVTaVhfOLMogQnq~t5nOU8aBkZ7yA8c93VuFAp-Ra~WWxC-kFb~Lq8p2KBJUIHkBl4B5KX4MYRT8bks2fs67IYurAcnjHyWgNIRP7BAkL1LoWQgZcmnC6utC2B1iRksRE6ryQb1neMnbYUu521~d1XZy5dASl4nlU-~fUj8aDWIXaq9PIFYZP5Av~FFjjyHC9fykZrg__" alt="Product Image" />
-                                <p>H1 Gamepad</p>
-                                <button className={styles.deleteBtn}><TiDelete/></button>
-                            </div>
-                        </td>
-                        <td>$650</td>
-                        <td>
-                            <span className={styles.quantity}>
-                                <input
-                                    type="text"
-                                    value={value.toString().padStart(2, '0')}
-                                    readOnly
-                                />
+                            </td>
+                            <td>${item.price}</td>
+                            <td>
+                                <span className={styles.quantity}>
+                                <input type="text" value={item.quantity.toString().padStart(2, '0')} readOnly />
                                 <div className={styles.quantityButtons}>
-                                    <button onClick={increment}><FaAngleUp/></button>
-                                    <button onClick={decrement}><FaAngleDown/></button>
+                                    <button onClick={() => dispatch(incrementQuantity(item._id))}><FaAngleUp/></button>
+                                    <button onClick={() => dispatch(decrementQuantity(item._id))}><FaAngleDown/></button>
                                 </div>
-                            </span>
-                        </td>
-                        <td>$650</td>
-                    </tr>
+                                </span>
+                            </td>
+                            <td>${Number(item.price) * item.quantity}</td>
+                        </tr>
+                        </Fragment>
+                    ))}
                 </tbody>
             </table>
+            :
+            <div className={styles.emptyCart}>Your cart is empty</div>}
             <div className={styles.cartSummary}>
                 <div className={styles.cartSummaryBtns}>
                     <NavLink to="/">
-                        <ButtonWhite name='Return to shop' />
+                        <ButtonWhite name='Return to shop'/>
                     </NavLink>
-                    <ButtonWhite name='Clear cart' />
+                    <ButtonWhite name='Clear cart' onClick={() => dispatch(clearCart())}/>
                 </div>
                 <div className={styles.cartSummaryTotalContainer}>
                     <div className={styles.CouponContainer}>
@@ -94,7 +82,7 @@ function Cart () {
                         <div className={styles.cartSummaryTotalContext}>
                             <div className={styles.Total}>
                                 <span>Subtotal:</span>
-                                <span>$1750</span>
+                                <span>${subtotal.toFixed(2)}</span>
                             </div>
                             <hr className={styles.splitter}/>
                             <div className={styles.Total}>
@@ -104,7 +92,7 @@ function Cart () {
                             <hr className={styles.splitter}/>
                             <div className={styles.Total}>
                                 <span>Total:</span>
-                                <span>$1750</span>
+                                <span>${total.toFixed(2)}</span>
                             </div>
                         </div>
                         <div className={styles.cartSummaryTotalBtn}>

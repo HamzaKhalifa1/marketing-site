@@ -1,0 +1,127 @@
+.contactContainer{
+    display: flex;
+    gap: 1.8em;
+}
+
+.contactInfo{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border-radius: 5px;
+    padding: 2.5em 2em;
+    box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.05);
+}
+
+.contactInfoPhone, .contactInfoEmail{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.contactInfoTitle{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.contactInfoTitleIcon{
+    background-color: var(--secondary-2);
+    border-radius: 50%;
+    color: white;
+    padding: 0.5em;
+    width: 2em;
+    height: 2em;
+}
+
+.contactInfoTitle > span{
+    font-size: var(--title-16px-medium-font-size);
+    font-family: var(--title-16px-medium-font-family);
+    font-style: var(--title-16px-medium-font-style);
+    font-weight: var(--title-16px-medium-font-weight);
+    letter-spacing: var(--title-16px-medium-letter-spacing);
+    line-height: var(--title-16px-medium-line-height);
+}
+
+.splitter{
+    width: 100%;
+    margin: 2em 0;
+}
+
+.contactFields{
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    gap: 2em;
+    border-radius: 5px;
+    padding: 2.5em 2em;
+    box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.05);
+}
+
+.contactFieldsInputs{
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.contactFieldsInputs > input[type="text"]{
+    width: 100%;
+    flex: 1 1 33.33%;
+    padding: 0.8em 1em;
+    height: auto;
+}
+
+.contactFields > textarea{
+    background-color: var(--secondary);
+    width: calc(100% - 2em);
+    height: 100%;
+    min-height: 10em;
+    padding: 0.8em 1em;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+    border: none;
+    resize: none;
+}
+
+.contactFields > textarea::placeholder{
+    font-family: "Poppins", sans-serif;
+}
+
+.contactButton{
+    align-self: flex-end;
+}
+
+@media screen and (max-width: 768px) {
+    .contactContainer{
+        flex-direction: column;
+    }
+
+    .contactInfo{
+        flex-direction: row;
+    }
+
+    .contactInfoPhone, .contactInfoEmail{
+        flex: 1;
+    }
+
+    .splitter{
+        width: 1px;
+        margin: 0 2em;
+        background-color: black;
+        border: none;
+        border-radius: 5px;
+        opacity: 0.3;
+    }   
+}
+
+@media screen and (max-width: 480px) {
+    .contactFieldsInputs{
+        flex-direction: column;
+    }
+
+    .contactFieldsInputs > input[type="text"]{
+        width: calc(100% - 2em);
+    }
+}
+
+
+

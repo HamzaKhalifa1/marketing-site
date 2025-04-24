@@ -30,7 +30,32 @@
 
 .frame {
     display: flex;
-    gap: 24px;
+    gap: 3em;
+    align-items: center;
+    justify-content: center;
+}
+
+#wishlistAndCart{
+    display: flex;
+    align-items: flex-end;
+    gap: 1em;
+}
+
+.iconWrapper {
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    top: -0.5em;
+    right: -0.5em;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 0.5em;
+    font-weight: bold;
+    padding: 0.2em 0.7em;
+    border-radius: 50%;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -39,7 +64,10 @@
     text-decoration: none;
     color: var(--text-2);
     position: relative;
-    padding: 8px 16px;
+}
+
+.header_instanceIcon{
+    font-size: 1.8em;
 }
 
 .header_instance:hover {
@@ -70,13 +98,13 @@
     height: 24px;
     position: relative;
 }
+
 #Search{
     display: flex;
     align-items: center;
     justify-content: center;
     padding-right: 20px;
 }
-
 
 .name.active {
     align-items: center;
@@ -110,8 +138,10 @@
     width: fit-content;
 }
 
-#SerchAndWishlistAndCart{
+#SearchAndWishlistAndCart{
     display: flex;
 }
+
+
 
 
