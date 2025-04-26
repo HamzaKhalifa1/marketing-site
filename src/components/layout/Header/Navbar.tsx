@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './Navbar.module.css'
 import {NavLink} from "react-router-dom";
 import PropTypes from "prop-types";
@@ -6,15 +6,21 @@ import Component2 from "./../../../assets/images/Component2.svg";
 import { CiHeart } from "react-icons/ci";
 import { PiShoppingCartThin } from "react-icons/pi";
 import { useAppSelector } from '../../../hooks/reduxHooks';
+import {IoIosSearch} from "react-icons/io";
 
 interface Props {
     property1: "active" | "default";
 }
 
 function Navbar({ property1 }: Props ){
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const wishlistItems = useAppSelector(state => state.wishlist.items);
     const cartItems = useAppSelector(state => state.cart.items);
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
 
     return (
         <>
@@ -25,16 +31,12 @@ function Navbar({ property1 }: Props ){
             </div>
         </section>
             <section>
-                <div className={styles.frame}>
-                    <NavLink to="/" className={styles.header_instance}>
-                        Home
-                    </NavLink>
-                    <NavLink to="Contact" className={styles.header_instance}>
-                        Contact
-                    </NavLink>
-                    <NavLink to="About" className={styles.header_instance}>
-                        About
-                    </NavLink>
+                <div className={styles.navbar}>
+                    <div className={`${styles.frame} ${menuOpen ? styles.open : ''}`}>
+                        <NavLink to="/" className={styles.header_instance}>Home</NavLink>
+                        <NavLink to="/Contact" className={styles.header_instance}>Contact</NavLink>
+                        <NavLink to="/About" className={styles.header_instance}>About</NavLink>
+                    </div>
                 </div>
             </section>
             <section id={styles.SearchAndWishlistAndCart}>
@@ -43,7 +45,7 @@ function Navbar({ property1 }: Props ){
                         {property1 === "active" && (
                             <div className={styles.frame}>
                                 <p className={styles.text_wrapper}>What are you looking for?</p>
-                                <img  alt="Vector" src={Component2} />
+                                <img alt="Vector" src={Component2} />
                             </div>
                         )}
                     </div>
@@ -65,8 +67,15 @@ function Navbar({ property1 }: Props ){
                             )}
                         </div>
                     </NavLink>
+                    <div className={`${styles.Search2} ${styles.icon}`}>
+                        <IoIosSearch />
+                    </div>
+
+                    <button className={styles.menuButton} onClick={toggleMenu}>
+                        ☰
+                    </button>
                 </section>
-            </section>      
+            </section>
         </header>
         <hr className='lineThrough'/>  
 </>
