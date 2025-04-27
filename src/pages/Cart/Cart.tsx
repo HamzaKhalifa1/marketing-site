@@ -96,7 +96,7 @@ function Cart () {
                             </div>
                         </div>
                         <div className={styles.cartSummaryTotalBtn}>
-                            <NavLink to="CheckOut">
+                            <NavLink to="checkOut">
                                 <Button name='Process to checkout' />
                             </NavLink>
                         </div>
