@@ -6,6 +6,7 @@ import Wishlist from "../pages/Wishlist";
 import Cart from "../pages/Cart";
 import CheckOut from "../pages/CheckOut";
 import Contact from "../pages/Contact";
+import Error from "../pages/Error";
 
 const PagesRoutes=()=>{
     const route = createBrowserRouter([
@@ -16,7 +17,8 @@ const PagesRoutes=()=>{
                 {path:'about',element:<div>About</div>},
                 {path:'wishlist',element:<Wishlist/>},
                 {path:'cart',element:<Cart/>},
-                {path:'cart/CheckOut',element:<CheckOut/>},
+                {path:'cart/checkOut',element:<CheckOut/>},
+                { path: '*', element: <Error /> }
             ]}
     ])
 

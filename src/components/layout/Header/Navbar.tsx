@@ -34,8 +34,8 @@ function Navbar({ property1 }: Props ){
                 <div className={styles.navbar}>
                     <div className={`${styles.frame} ${menuOpen ? styles.open : ''}`}>
                         <NavLink to="/" className={styles.header_instance}>Home</NavLink>
-                        <NavLink to="/Contact" className={styles.header_instance}>Contact</NavLink>
-                        <NavLink to="/About" className={styles.header_instance}>About</NavLink>
+                        <NavLink to="/contact" className={styles.header_instance}>Contact</NavLink>
+                        <NavLink to="/about" className={styles.header_instance}>About</NavLink>
                     </div>
                 </div>
             </section>

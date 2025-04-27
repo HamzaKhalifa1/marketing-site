@@ -1,0 +1,19 @@
+.error{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    margin-top: 6em;
+}
+
+.errorTitle{
+    font-family: var(--heading-90px-semibold-font-family);
+    font-size: var(--heading-90px-semibold-font-size);
+    font-style: var(--heading-90px-semibold-font-style);
+    font-weight: var(--heading-90px-semibold-font-weight);
+    letter-spacing: var(--heading-90px-semibold-letter-spacing);
+    line-height: var(--heading-90px-semibold-line-height);
+    color: var(--text-2);
+    margin: 0;
+}
